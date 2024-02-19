@@ -6,6 +6,9 @@ import updateBookById from "../services/books/updateBookById.js";
 import deleteBook from "../services/books/deleteBook.js";
 import authMiddleware from "../middleware/auth.js";
 
+// we need to add the middleware to the routes we want to secure.
+//To do this, we have to make some changes in routes/books.js and routes/records.js. First,
+
 const router = express.Router();
 
 router.get("/", (req, res) => {

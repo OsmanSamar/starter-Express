@@ -1,3 +1,5 @@
+//So, let's make our own middleware that checks the user's token before they can access various resources.
+
 import jwt from "jsonwebtoken";
 
 const authMiddleware = (req, res, next) => {
