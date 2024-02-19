@@ -5,9 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev:server": "cd server && nodemon index.js",
+    "dev:client": "cd client && npm start",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
   },
-  "author": "Winc",
+  "author": "Samar",
   "license": "ISC",
   "dependencies": {
     "@sentry/node": "^7.94.1",
