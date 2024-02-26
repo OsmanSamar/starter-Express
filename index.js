@@ -59,7 +59,7 @@ app.use(Sentry.Handlers.errorHandler());
 app.use(errorHandler);
 
 app.get("/", (req, res) => {
-  res.send("Hello World! Completed");
+  res.send("Hello World! Completed. Hi");
 });
 
 app.listen(3000, () => {

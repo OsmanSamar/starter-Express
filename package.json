@@ -4,14 +4,17 @@
   "description": "My first express app",
   "main": "index.js",
   "type": "module",
+  "prisma": {
+    "seed": "node ./prisma/seed.js"
+  },
   "scripts": {
-    "dev:server": "cd server && nodemon index.js",
-    "dev:client": "cd client && npm start",
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
+    "dev": "nodemon index.js",
+    "start": "npm start"
   },
   "author": "Samar",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.10.2",
     "@sentry/node": "^7.94.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
