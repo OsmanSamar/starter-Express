@@ -4,26 +4,24 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+
+
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
- url      = "file:./dev.db"
+  provider     = "sqlite"
+  url          = "file:./dev.db"
   relationMode = "prisma"
-
 }
-
-
-
-
 
 model User {
   id       String  @id @default(uuid())
   username String  @unique
   password String
-  orders    Order[]
+  orders   Order[]
 }
 
 model Book {
@@ -34,7 +32,7 @@ model Book {
   pages     Int
   available Boolean
   genre     String
-  orders     Order[]
+  orders    Order[]
 }
 
 model Order {
@@ -52,4 +50,10 @@ model Order {
   // Additionally, we also get a reference to the related models
   user User @relation(fields: [user_id], references: [id])
   book Book @relation(fields: [book_id], references: [id])
+
+  // @@index([book_id], name: "book_id_index") // Adding index to book_id
+  // @@index([user_id], name: "user_id_index") // Adding index to user_id
+  @@index([book_id])
+@@index([user_id])
+
 }

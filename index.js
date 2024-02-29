@@ -6,7 +6,8 @@ import booksRouter from "./routes/books.js";
 import recordsRouter from "./routes/records.js";
 import categoriesRouter from "./routes/categories.js";
 import eventsRouter from "./routes/events.js";
-import usersRouter from "./routes/users.js";
+// import usersRouter from "./routes/users.js";
+import userRouter from "./routes/users.js";
 
 import loginRouter from "./routes/login.js";
 import log from "./middleware/logMiddleware.js";
@@ -46,7 +47,7 @@ app.use("/books", booksRouter);
 app.use("/records", recordsRouter);
 app.use("/categories", categoriesRouter);
 app.use("/events", eventsRouter);
-app.use("/users", usersRouter);
+app.use("/users", userRouter);
 
 // Login
 app.use("/login", loginRouter);

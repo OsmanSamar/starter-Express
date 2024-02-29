@@ -3,16 +3,12 @@
     {
       "id": "5c1c37f6-3ee0-4c07-9c8f-5864f74e627d",
       "username": "johnsmith",
-      "password": "P@ssw0rd",
-      "name": "Ignacio Doe",
-      "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb093da7d92733c001c0_Ignacio%20Villafruela%20Rodr%C3%ADguez.jpg"
+      "password": "P@ssw0rd"
     },
     {
       "id": "84c6673c-6fd6-4184-9193-6111f58c70f7",
       "username": "janedoe",
-      "password": "Secret123",
-      "name": "Jane Bennett",
-      "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb401d7131c760ca1c63_Elieska%20Lensink.jpg"
+      "password": "Secret123"
     }
   ]
 }

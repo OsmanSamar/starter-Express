@@ -1,13 +1,16 @@
 import { PrismaClient } from "@prisma/client";
 import bookData from "../data/books.json" assert { type: "json" };
 import userData from "../data/users.json" assert { type: "json" };
+import orderData from "../data/orders.json" assert { type: "json" };
 
 const prisma = new PrismaClient({ log: ["query", "info", "warn", "error"] });
 
 async function main() {
   const { books } = bookData;
   const { users } = userData;
+  const { orders } = orderData;
 
+  // Create books
   for (const book of books) {
     await prisma.book.upsert({
       where: { id: book.id },
@@ -15,11 +18,22 @@ async function main() {
       create: book,
     });
   }
+
   for (const user of users) {
     await prisma.user.upsert({
       where: { id: user.id },
       update: {},
       create: user,
+    });
+  }
+
+  // Create orders
+  // Before or after the other loops in main()
+  for (const order of orders) {
+    await prisma.order.upsert({
+      where: { id: order.id },
+      update: {},
+      create: order,
     });
   }
 }

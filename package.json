@@ -14,7 +14,6 @@
   "author": "Samar",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.10.2",
     "@sentry/node": "^7.94.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -23,6 +22,6 @@
     "winston": "^3.11.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^3.1.0"
   }
 }

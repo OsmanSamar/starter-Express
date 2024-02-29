@@ -11,10 +11,10 @@ import authMiddleware from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const { genre, available } = req.query;
-    const books = getBooks(genre, available);
+    const books = await getBooks(genre, available);
     res.status(200).json(books);
   } catch (error) {
     console.error(error);
@@ -22,10 +22,17 @@ router.get("/", (req, res) => {
   }
 });
 
-router.post("/", authMiddleware, (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   // try {
   const { title, author, isbn, pages, available, genre } = req.body;
-  const newBook = createBook(title, author, isbn, pages, available, genre);
+  const newBook = await createBook(
+    title,
+    author,
+    isbn,
+    pages,
+    available,
+    genre
+  );
   res.status(201).json(newBook);
   // } catch (error) {
   //   console.error(error);
@@ -33,10 +40,10 @@ router.post("/", authMiddleware, (req, res) => {
   // }
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const book = getBookById(id);
+    const book = await getBookById(id);
 
     if (!book) {
       res.status(404).send(`Book with id ${id} was not found!`);
@@ -49,11 +56,11 @@ router.get("/:id", (req, res) => {
   }
 });
 
-router.put("/:id", authMiddleware, (req, res) => {
+router.put("/:id", authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
     const { title, author, isbn, pages, available, genre } = req.body;
-    const updatedBook = updateBookById(
+    const updatedBook = await updateBookById(
       id,
       title,
       author,
@@ -69,10 +76,10 @@ router.put("/:id", authMiddleware, (req, res) => {
   }
 });
 
-router.delete("/:id", authMiddleware, (req, res) => {
+router.delete("/:id", authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
-    const deletedBookId = deleteBook(id);
+    const deletedBookId = await deleteBook(id);
 
     if (!deletedBookId) {
       res.status(404).send(`Book with id ${id} was not found!`);
